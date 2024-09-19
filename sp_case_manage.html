@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dermatology Case Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="mock.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .case-management-container {
+            margin-top: 50px;
+        }
+        .case-management-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .modal-header {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="container case-management-container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10">
+                <div class="case-management-header">
+                    <h2>Dermatology Case Management</h2>
+                    <p>Manage patient cases for dermatology through diagnosis, treatment, and follow-up</p>
+                </div>
+
+                <!-- Accordion for collapsible sections -->
+                <div class="accordion" id="caseManagementAccordion">
+
+                    <!-- Diagnose Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingDiagnose">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiagnose" aria-expanded="true" aria-controls="collapseDiagnose">
+                                Diagnose
+                            </button>
+                        </h2>
+                        <div id="collapseDiagnose" class="accordion-collapse collapse show" aria-labelledby="headingDiagnose" data-bs-parent="#caseManagementAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="diagnosis">Diagnosis</label>
+                                        <textarea class="form-control" id="diagnosis" rows="3" placeholder="Enter diagnosis (e.g., eczema, acne, psoriasis)"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="symptoms">Symptoms</label>
+                                        <textarea class="form-control" id="symptoms" rows="3" placeholder="List symptoms"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="onsetDate">Date of Onset</label>
+                                        <input type="date" class="form-control" id="onsetDate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="severity">Severity</label>
+                                        <select class="form-control" id="severity">
+                                            <option>Mild</option>
+                                            <option>Moderate</option>
+                                            <option>Severe</option>
+                                        </select>
+                                    </div>
+                                    <!-- Clinical Knowledge Link -->
+                                    <div class="mt-3 text-end" >
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#clinicalKnowledgeModal">Clinical Knowledge</a>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Affected Areas</label>
+                                        <div>
+                                            <input type="checkbox" id="face" value="Face">
+                                            <label for="face">Face</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="neck" value="Neck">
+                                            <label for="neck">Neck</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="back" value="Back">
+                                            <label for="back">Back</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="arms" value="Arms">
+                                            <label for="arms">Arms</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="legs" value="Legs">
+                                            <label for="legs">Legs</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Clinical Knowledge Modal -->
+                                    <div class="modal fade" id="clinicalKnowledgeModal" tabindex="-1" aria-labelledby="clinicalKnowledgeModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="clinicalKnowledgeModalLabel">Clinical Knowledge</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label for="source">Source</label>
+                                                            <input type="text" class="form-control" id="source" placeholder="Enter source">
+                                                        </div>
+                                                        <div class="form-group mt-3">
+                                                            <label for="date">Date</label>
+                                                            <input type="date" class="form-control" id="date">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assessment Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingAssessment">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAssessment" aria-expanded="false" aria-controls="collapseAssessment">
+                                Assessment
+                            </button>
+                        </h2>
+                        <div id="collapseAssessment" class="accordion-collapse collapse" aria-labelledby="headingAssessment" data-bs-parent="#caseManagementAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="assessment">Physical Examination</label>
+                                        <textarea class="form-control" id="assessment" rows="3" placeholder="Enter visual assessment details (e.g., red patches, bumps, scaling)"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="skinType">Skin Type</label>
+                                        <select class="form-control" id="skinType">
+                                            <option>Oily</option>
+                                            <option>Dry</option>
+                                            <option>Combination</option>
+                                            <option>Normal</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="previousTreatments">Previous Treatments Tried</label>
+                                        <textarea class="form-control" id="previousTreatments" rows="3" placeholder="Enter previous treatments"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="allergies">Allergies</label>
+                                        <input type="text" class="form-control" id="allergies" placeholder="List any allergies (e.g., topical creams, medications)">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prescription Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingPrescription">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrescription" aria-expanded="false" aria-controls="collapsePrescription">
+                                Prescription
+                            </button>
+                        </h2>
+                        <div id="collapsePrescription" class="accordion-collapse collapse" aria-labelledby="headingPrescription" data-bs-parent="#caseManagementAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="medications">Medications</label>
+                                        <textarea class="form-control" id="medications" rows="3" placeholder="List prescribed medications (e.g., topical steroids, antihistamines)"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dosageInstructions">Dosage Instructions</label>
+                                        <input type="text" class="form-control" id="dosageInstructions" placeholder="Enter dosage instructions (e.g., twice daily)">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="duration">Duration of Use</label>
+                                        <select class="form-control" id="duration">
+                                            <option>1 week</option>
+                                            <option>2 weeks</option>
+                                            <option>1 month</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="refills">Refills Needed</label>
+                                        <div>
+                                            <input type="checkbox" id="refills" value="Yes">
+                                            <label for="refills">Yes</label>
+                                            <input type="number" class="form-control mt-2" id="numRefills" placeholder="Enter number of refills">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Treatment Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTreatment">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTreatment" aria-expanded="false" aria-controls="collapseTreatment">
+                                Treatment
+                            </button>
+                        </h2>
+                        <div id="collapseTreatment" class="accordion-collapse collapse" aria-labelledby="headingTreatment" data-bs-parent="#caseManagementAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="treatmentPlan">Treatment Plan</label>
+                                        <textarea class="form-control" id="treatmentPlan" rows="3" placeholder="Enter overall treatment plan"></textarea>
+                                    </div>
+                                    <div class="form-group text-end">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#treatmentPlanningModal">Treatment Planning</a>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>In-Office Procedures</label>
+                                        <div>
+                                            <input type="checkbox" id="cryotherapy" value="Cryotherapy">
+                                            <label for="cryotherapy">Cryotherapy</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="excision" value="Excision">
+                                            <label for="excision">Excision</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="biopsy" value="Biopsy">
+                                            <label for="biopsy">Biopsy</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="topicalTreatment">Topical Treatments</label>
+                                        <textarea class="form-control" id="topicalTreatment" rows="3" placeholder="Describe topical treatments"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="followUp">Follow-Up Schedule</label>
+                                        <input type="date" class="form-control" id="followUp">
+                                    </div>
+                                    <!-- Treatment Planning Modal with Accordions -->
+                                    <div class="modal fade" id="treatmentPlanningModal" tabindex="-1" aria-labelledby="treatmentPlanningModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="treatmentPlanningModalLabel">Treatment Planning</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <!-- Accordion for Treatment Planning -->
+                                                        <div class="accordion" id="treatmentAccordion">
+
+                                                            <!-- Medications Section -->
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="headingMedication">
+                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMedication" aria-expanded="true" aria-controls="collapseMedication">
+                                                                        Treatment - Medications
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="collapseMedication" class="accordion-collapse collapse show" aria-labelledby="headingMedication" data-bs-parent="#treatmentAccordion">
+                                                                    <div class="accordion-body">
+                                                                        <div class="form-group">
+                                                                            <label for="medication">Medications</label>
+                                                                            <textarea class="form-control" id="medication" rows="2" placeholder="Enter prescribed medications (e.g., corticosteroids, antibiotics, retinoids)"></textarea>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="dosage">Dosage</label>
+                                                                            <input type="text" class="form-control" id="dosage" placeholder="Enter dosage (e.g., 50 mg)">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="frequency">Frequency</label>
+                                                                            <input type="text" class="form-control" id="frequency" placeholder="Enter frequency (e.g., twice daily)">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="topicalTreatments">Topical Treatments</label>
+                                                                            <textarea class="form-control" id="topicalTreatments" rows="2" placeholder="Enter topical treatments (e.g., creams, ointments, lotions)"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Natural Remedies Section -->
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="headingNaturalRemedies">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNaturalRemedies" aria-expanded="false" aria-controls="collapseNaturalRemedies">
+                                                                        Natural Remedies
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="collapseNaturalRemedies" class="accordion-collapse collapse" aria-labelledby="headingNaturalRemedies" data-bs-parent="#treatmentAccordion">
+                                                                    <div class="accordion-body">
+                                                                        <div class="form-group">
+                                                                            <label for="naturalRemedies">Natural Remedies</label>
+                                                                            <textarea class="form-control" id="naturalRemedies" rows="2" placeholder="Enter natural remedies (e.g., aloe vera, essential oils)"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Integrated Medicine Section -->
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="headingIntegratedMedicine">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIntegratedMedicine" aria-expanded="false" aria-controls="collapseIntegratedMedicine">
+                                                                        Integrated Medicine
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="collapseIntegratedMedicine" class="accordion-collapse collapse" aria-labelledby="headingIntegratedMedicine" data-bs-parent="#treatmentAccordion">
+                                                                    <div class="accordion-body">
+                                                                        <!-- Acupuncture -->
+                                                                        <div class="form-group">
+                                                                            <label for="acupuncture">Acupuncture</label>
+                                                                            <input type="checkbox" id="acupuncture" value="Acupuncture"> Acupuncture
+                                                                            <div id="acupunctureDetails" style="display:none;" class="mt-3">
+                                                                                <label for="acupunctureFrequency">Frequency</label>
+                                                                                <input type="text" class="form-control" id="acupunctureFrequency" placeholder="e.g., once a week">
+
+                                                                                <label for="acupunctureSession">Session Duration</label>
+                                                                                <input type="text" class="form-control" id="acupunctureSession" placeholder="e.g., 30 minutes">
+
+                                                                                <label for="acupunctureGoals">Goals</label>
+                                                                                <textarea class="form-control" id="acupunctureGoals" rows="2" placeholder="Enter expected outcomes (e.g., reduce inflammation, relieve stress)"></textarea>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <!-- Meditation -->
+                                                                        <div class="form-group">
+                                                                            <label for="meditation">Meditation</label>
+                                                                            <input type="checkbox" id="meditation" value="Meditation"> Meditation
+                                                                            <div id="meditationDetails" style="display:none;" class="mt-3">
+                                                                                <label for="meditationFrequency">Frequency</label>
+                                                                                <input type="text" class="form-control" id="meditationFrequency" placeholder="e.g., daily">
+
+                                                                                <label for="meditationDuration">Session Duration</label>
+                                                                                <input type="text" class="form-control" id="meditationDuration" placeholder="e.g., 20 minutes">
+
+                                                                                <label for="meditationGoals">Goals</label>
+                                                                                <textarea class="form-control" id="meditationGoals" rows="2" placeholder="Enter expected outcomes (e.g., manage stress, promote healing)"></textarea>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <!-- Yoga -->
+                                                                        <div class="form-group">
+                                                                            <label for="yoga">Yoga</label>
+                                                                            <input type="checkbox" id="yoga" value="Yoga"> Yoga
+                                                                            <div id="yogaDetails" style="display:none;" class="mt-3">
+                                                                                <label for="yogaFrequency">Frequency</label>
+                                                                                <input type="text" class="form-control" id="yogaFrequency" placeholder="e.g., 3 times a week">
+
+                                                                                <label for="yogaDuration">Session Duration</label>
+                                                                                <input type="text" class="form-control" id="yogaDuration" placeholder="e.g., 45 minutes">
+
+                                                                                <label for="yogaGoals">Goals</label>
+                                                                                <textarea class="form-control" id="yogaGoals" rows="2" placeholder="Enter expected outcomes (e.g., improve circulation, reduce inflammation)"></textarea>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <!-- Massage Therapy -->
+                                                                        <div class="form-group">
+                                                                            <label for="massageTherapy">Massage Therapy</label>
+                                                                            <input type="checkbox" id="massageTherapy" value="Massage Therapy"> Massage Therapy
+                                                                            <div id="massageTherapyDetails" style="display:none;" class="mt-3">
+                                                                                <label for="massageFrequency">Frequency</label>
+                                                                                <input type="text" class="form-control" id="massageFrequency" placeholder="e.g., twice a month">
+
+                                                                                <label for="massageDuration">Session Duration</label>
+                                                                                <input type="text" class="form-control" id="massageDuration" placeholder="e.g., 60 minutes">
+
+                                                                                <label for="massageGoals">Goals</label>
+                                                                                <textarea class="form-control" id="massageGoals" rows="2" placeholder="Enter expected outcomes (e.g., promote relaxation, improve skin elasticity)"></textarea>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save Treatment Plan</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommendation Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingRecommendation">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRecommendation" aria-expanded="false" aria-controls="collapseRecommendation">
+                                Recommendation
+                            </button>
+                        </h2>
+                        <div id="collapseRecommendation" class="accordion-collapse collapse" aria-labelledby="headingRecommendation" data-bs-parent="#caseManagementAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="lifestyleModifications">Lifestyle Modifications</label>
+                                        <textarea class="form-control" id="lifestyleModifications" rows="3" placeholder="Enter lifestyle modifications"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="productRecommendations">Product Recommendations</label>
+                                        <textarea class="form-control" id="productRecommendations" rows="3" placeholder="List recommended products"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dietarySuggestions">Dietary Suggestions</label>
+                                        <textarea class="form-control" id="dietarySuggestions" rows="3" placeholder="Enter dietary suggestions"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sunProtection">Sun Protection</label>
+                                        <select class="form-control" id="sunProtection">
+                                            <option>SPF 30+</option>
+                                            <option>SPF 50+</option>
+                                            <option>SPF 70+</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingEducation">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEducation" aria-expanded="false" aria-controls="collapseEducation">
+                                Education
+                            </button>
+                        </h2>
+                        <div id="collapseEducation" class="accordion-collapse collapse" aria-labelledby="headingEducation" data-bs-parent="#caseManagementAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="patientResources">Patient Resources</label>
+                                        <textarea class="form-control" id="patientResources" rows="3" placeholder="Enter links to resources or documents"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="selfCareTips">Self-Care Tips</label>
+                                        <textarea class="form-control" id="selfCareTips" rows="3" placeholder="Enter self-care advice"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="conditionInformation">Condition Information</label>
+                                        <textarea class="form-control" id="conditionInformation" rows="3" placeholder="Explain the diagnosed condition"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Warning Signs</label>
+                                        <div>
+                                            <input type="checkbox" id="worseningSymptoms" value="Worsening Symptoms">
+                                            <label for="worseningSymptoms">Worsening Symptoms</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="severeReaction" value="Severe Reaction">
+                                            <label for="severeReaction">Severe Reaction</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="noImprovement" value="No Improvement">
+                                            <label for="noImprovement">No Improvement</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (for the accordion functionality) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="mockup.js"></script>
+
+<script>
+    document.getElementById('acupuncture').addEventListener('change', function() {
+        document.getElementById('acupunctureDetails').style.display = this.checked ? 'block' : 'none';
+    });
+
+    document.getElementById('meditation').addEventListener('change', function() {
+        document.getElementById('meditationDetails').style.display = this.checked ? 'block' : 'none';
+    });
+
+    document.getElementById('yoga').addEventListener('change', function() {
+        document.getElementById('yogaDetails').style.display = this.checked ? 'block' : 'none';
+    });
+
+    document.getElementById('massageTherapy').addEventListener('change', function() {
+        document.getElementById('massageTherapyDetails').style.display = this.checked ? 'block' : 'none';
+    });
+</script>
+</body>
+</html>

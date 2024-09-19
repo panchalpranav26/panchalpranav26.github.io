@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Patient Scheduling</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="mock.css" rel="stylesheet">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="container schedule-container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <div class="schedule-header">
+                    <h2>Patient Scheduling</h2>
+                    <p>Manage your appointments, consultations, and evaluations</p>
+                </div>
+
+                <!-- Accordion for collapsible sections -->
+                <div class="accordion" id="patientScheduleAccordion">
+
+                    <!-- Appointment Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingAppointment">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAppointment" aria-expanded="true" aria-controls="collapseAppointment">
+                                Appointment
+                            </button>
+                        </h2>
+                        <div id="collapseAppointment" class="accordion-collapse collapse show" aria-labelledby="headingAppointment" data-bs-parent="#patientScheduleAccordion">
+                            <div class="accordion-body">
+                                <p>Schedule your appointment with the doctor or healthcare provider.</p>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="appointmentDate">Date</label>
+                                        <input type="date" class="form-control" id="appointmentDate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="appointmentTime">Time</label>
+                                        <input type="time" class="form-control" id="appointmentTime">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="doctor">Select Doctor</label>
+                                        <select class="form-control" id="doctor">
+                                            <option>Dr. John Doe</option>
+                                            <option>Dr. Jane Smith</option>
+                                            <option>Dr. Emily Johnson</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="channels">Preferred Channel</label>
+                                        <div>
+                                            <input type="checkbox" id="channelVideo" name="channel" value="Video">
+                                            <label for="channelVideo">Video</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="channelPhone" name="channel" value="Phone">
+                                            <label for="channelPhone">Phone</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="channelChat" name="channel" value="Chat">
+                                            <label for="channelChat">Chat</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Consultation Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingConsultation">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseConsultation" aria-expanded="false" aria-controls="collapseConsultation">
+                                Consultation
+                            </button>
+                        </h2>
+                        <div id="collapseConsultation" class="accordion-collapse collapse" aria-labelledby="headingConsultation" data-bs-parent="#patientScheduleAccordion">
+                            <div class="accordion-body">
+                                <p>Book a consultation with your healthcare provider.</p>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="consultationType">Consultation For</label>
+                                        <select class="form-control" id="consultationType">
+                                            <option>Skin Care</option>
+                                            <option>Advice</option>
+                                            <option>Refills</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="consultationDate">Date</label>
+                                        <input type="date" class="form-control" id="consultationDate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="channels">Preferred Channel</label>
+                                        <div>
+                                            <input type="checkbox" id="channelVideoConsult" name="channel" value="Video">
+                                            <label for="channelVideoConsult">Video</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="channelPhoneConsult" name="channel" value="Phone">
+                                            <label for="channelPhoneConsult">Phone</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="channelChatConsult" name="channel" value="Chat">
+                                            <label for="channelChatConsult">Chat</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evaluation Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingEvaluation">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEvaluation" aria-expanded="false" aria-controls="collapseEvaluation">
+                                Evaluation
+                            </button>
+                        </h2>
+                        <div id="collapseEvaluation" class="accordion-collapse collapse" aria-labelledby="headingEvaluation" data-bs-parent="#patientScheduleAccordion">
+                            <div class="accordion-body">
+                                <p>Schedule a health evaluation or check-up.</p>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="evaluationReason">Reason for Evaluation</label>
+                                        <input type="text" class="form-control" id="evaluationReason" placeholder="Enter reason">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="evaluationDate">Date</label>
+                                        <input type="date" class="form-control" id="evaluationDate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="channelEvaluation">Preferred Channel</label>
+                                        <div>
+                                            <input type="checkbox" id="channelChatEval" name="channel" value="Chat">
+                                            <label for="channelChatEval">Chat</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Meet Now Section -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingMeetNow">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMeetNow" aria-expanded="false" aria-controls="collapseMeetNow">
+                                Meet Now
+                            </button>
+                        </h2>
+                        <div id="collapseMeetNow" class="accordion-collapse collapse" aria-labelledby="headingMeetNow" data-bs-parent="#patientScheduleAccordion">
+                            <div class="accordion-body">
+                                <p>Meet a healthcare provider instantly using the 'Meet Now' option.</p>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="provider">Select Available Provider</label>
+                                        <select class="form-control" id="provider">
+                                            <option>Dr. John Doe</option>
+                                            <option>Dr. Jane Smith</option>
+                                            <option>Dr. Emily Johnson</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="channelsMeetNow">Preferred Channel</label>
+                                        <div>
+                                            <input type="checkbox" id="channelVideoMeetNow" name="channel" value="Video">
+                                            <label for="channelVideoMeetNow">Video</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="channelPhoneMeetNow" name="channel" value="Phone">
+                                            <label for="channelPhoneMeetNow">Phone</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="channelChatMeetNow" name="channel" value="Chat">
+                                            <label for="channelChatMeetNow">Chat</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <button class="btn btn-primary">Meet Now</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (for the accordion functionality) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="mockup.js"></script>
+</body>
+</html>

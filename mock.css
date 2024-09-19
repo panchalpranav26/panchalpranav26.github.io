@@ -1,0 +1,87 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+
+.login-container {
+    margin-top: 100px;
+}
+.login-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+.login-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.btn-login {
+    width: 100%;
+}
+
+
+.signup-container {
+    margin-top: 50px;
+}
+.signup-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+.signup-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn-signup {
+    width: 100%;
+}
+
+
+.registration-container {
+    margin-top: 50px;
+}
+.registration-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+.registration-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.btn-register {
+    width: 100%;
+}
+
+
+.profile-container {
+    margin-top: 50px;
+}
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.accordion-button:not(.collapsed) {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.schedule-container {
+    margin-top: 50px;
+}
+.schedule-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.accordion-button:not(.collapsed) {
+    background-color: #4CAF50;
+    color: white;
+}
